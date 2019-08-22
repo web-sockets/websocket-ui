@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>Hello from WebSocket Demo</h1>
+
+
+<ng-container *ngFor="let message of messages">
+  <div>{{message}}</div>
+</ng-container>
+
+<button class="button-default" (click)="connectAll()">Connect All</button>
+
+<ng-container *ngFor="let topicId of socketTopicIds; let bgColor='undefined'; let isActive=false">
+    <button class="button-default"
+        style="margin: 10px;" 
+        [style.background-color]="bgColor"
+        [class.button-active]="isActive" 
+        (click)="connect(topicId); bgColor='green'; isActive=true">Topic - {{topicId}}</button>
+</ng-container>
+
+<router-outlet></router-outlet>
